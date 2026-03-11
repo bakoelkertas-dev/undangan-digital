@@ -151,9 +151,7 @@ Pesan Undangan Sekarang
 </a>
 
 </div>
-<div style="text-align:center;">
-  ♣ Pengunjung ♣ : <span id="counter">500</span>
-  </div>
+
 
 <!-- SOCIAL MEDIA -->
 
@@ -182,17 +180,7 @@ Pesan Undangan Sekarang
 <script>
 document.getElementById("tahun").innerHTML = new Date().getFullYear();
 
-let count = localStorage.getItem("visitorCount");
 
-if (!count) {
-    count = 500;
-} else {
-    count = parseInt(count) + 1;
-}
-
-localStorage.setItem("visitorCount", count);
-document.getElementById("counter").innerText = count;
-  
 </script>
   
 </body>
