@@ -182,11 +182,10 @@ Pesan Undangan Sekarang
 <script>
 document.getElementById("tahun").innerHTML = new Date().getFullYear();
 
-
-  fetch('https://api.countapi.xyz/hit/bakoelkertas/undangan')
+fetch('https://api.countapi.xyz/hit/bakoelkertas/undangan')
 .then(res => res.json())
 .then(res => {
-document.getElementById('visits').innerHTML = res.value;
+document.getElementById('visits').innerHTML = res.value + 500;
 });
   
 </script>
