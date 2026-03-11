@@ -170,12 +170,26 @@ Pesan Undangan Sekarang
 </a>
 
 </div>
-
+<div>
+👁️ Pengunjung: <span id="visits">0</span>
+</div>
 <!-- FOOTER -->
 
-<div class="footer">
-© 2026 Bakoel Kertas
-</div>
+<footer style="text-align:center; padding:20px;">
+© <span id="tahun"></span> Bakoel Kertas
+</footer>
 
+<script>
+document.getElementById("tahun").innerHTML = new Date().getFullYear();
+
+
+  fetch('https://api.countapi.xyz/hit/bakoelkertas/undangan')
+.then(res => res.json())
+.then(res => {
+document.getElementById('visits').innerHTML = res.value;
+});
+  
+</script>
+  
 </body>
 </html>
