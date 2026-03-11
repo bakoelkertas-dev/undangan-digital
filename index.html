@@ -151,9 +151,9 @@ Pesan Undangan Sekarang
 </a>
 
 </div>
-<div>
-♣ Pengunjung ♣: <span id="visits">0</span>
-</div>
+<div style="text-align:center;">
+  ♣ Pengunjung ♣ : <span id="counter">500</span>
+  </div>
 
 <!-- SOCIAL MEDIA -->
 
@@ -182,11 +182,16 @@ Pesan Undangan Sekarang
 <script>
 document.getElementById("tahun").innerHTML = new Date().getFullYear();
 
-fetch('https://api.countapi.xyz/hit/bakoelkertas/undangan')
-.then(res => res.json())
-.then(res => {
-document.getElementById('visits').innerHTML = res.value + 500;
-});
+let count = localStorage.getItem("visitorCount");
+
+if (!count) {
+    count = 500;
+} else {
+    count = parseInt(count) + 1;
+}
+
+localStorage.setItem("visitorCount", count);
+document.getElementById("counter").innerText = count;
   
 </script>
   
