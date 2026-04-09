@@ -106,6 +106,18 @@ font-size:13px;
 opacity:0.8;
 }
 
+/* COUNTER */
+
+.counter{
+margin-top:20px;
+background:rgba(255,255,255,0.2);
+display:inline-block;
+padding:8px 15px;
+border-radius:20px;
+font-size:14px;
+backdrop-filter:blur(5px);
+}
+
 </style>
 </head>
 
@@ -176,16 +188,26 @@ Pesan Undangan Sekarang
 
 </div>
 
-<!-- FOOTER -->
+<!-- COUNTER -->
+<div class="counter">
+👀 Dilihat <span id="visitor-count">0</span> kali
+</div>
 
-<footer style="text-align:center; padding:20px;">
+<!-- FOOTER -->
+<footer class="footer">
 © <span id="tahun"></span> Bakoel Kertas
 </footer>
 
 <script>
+// Tahun otomatis
 document.getElementById("tahun").innerHTML = new Date().getFullYear();
 
-
+// COUNTER PENGUNJUNG (CountAPI)
+fetch('https://api.countapi.xyz/hit/bakoelkertas/linkbio')
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById('visitor-count').innerText = res.value;
+  });
 </script>
   
 </body>
